@@ -35,13 +35,18 @@ export default function Hero() {
                 <BloomingFlower trackRef={track} reduced={reduced} />
               </div>
               <div className="arch__garland" aria-hidden="true">
-                <Illustration name="g2-arch-garland" eager />
+                <Illustration name="g2-arch-garland" eager priority="low" />
               </div>
             </div>
           </div>
 
+          <div className="hero__rail" aria-hidden="true" />
+
           <div className="hero__hint" aria-hidden="true">
-            <i /> Faites défiler
+            <span className="hint hint--go">
+              <i className="hint__chev" /> Faites défiler pour la voir éclore
+            </span>
+            <span className="hint hint--done">✿ Elle a éclos · continuez</span>
           </div>
         </div>
       </div>

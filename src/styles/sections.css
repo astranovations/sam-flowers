@@ -80,13 +80,15 @@
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  height: 320svh;
+  height: 320vh;
+  height: 320lvh; /* stable: does not change when the phone's address bar hides */
   --p: 0;
 }
 .hero__sticky {
   position: sticky;
   top: 0;
-  height: 100svh;
+  height: 100vh;
+  height: 100dvh; /* fills the visible screen as the address bar shows/hides */
   padding: var(--hero-inset);
 }
 .hero__stage {
@@ -171,10 +173,10 @@
 }
 .arch {
   position: absolute;
-  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: calc(100% - var(--arch-top, 17%));
+  bottom: 40px;
+  height: calc(100% - var(--arch-top, 17%) - 40px);
   aspect-ratio: 3 / 4.1;
   max-width: 90%;
 }
@@ -211,22 +213,103 @@
 
 .hero__hint {
   position: absolute;
-  bottom: 22px;
-  left: 28px;
+  bottom: 14px;
+  left: 0;
+  right: 0;
   z-index: 2;
-  display: none;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.68rem;
+  display: flex;
+  justify-content: center;
+  font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ivory);
-  opacity: 0.7;
+  pointer-events: none;
 }
-.hero__hint i {
-  width: 36px;
-  height: 1px;
-  background: currentColor;
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.6s var(--ease);
+}
+/* The scroll prompt fades out as the flower opens, then a small "done" line fades in. */
+.hint--go {
+  opacity: clamp(0, calc(1 - var(--p) * 6), 0.85);
+}
+.hint--done {
+  position: absolute;
+  opacity: 0;
+  color: var(--gold-soft);
+}
+.hero[data-bloomed] .hint--go {
+  opacity: 0;
+}
+.hero[data-bloomed] .hint--done {
+  opacity: 0.95;
+}
+.hint__chev {
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid var(--gold-soft);
+  border-bottom: 1.5px solid var(--gold-soft);
+  transform: rotate(45deg);
+  animation: chevBob 1.8s var(--ease) infinite;
+}
+@keyframes chevBob {
+  0%, 100% {
+    transform: translateY(-3px) rotate(45deg);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(3px) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+/* Slim progress rail: shows how far the flower has to go. */
+.hero__rail {
+  position: absolute;
+  right: 12px;
+  top: 30%;
+  bottom: 30%;
+  width: 2px;
+  z-index: 2;
+  border-radius: 2px;
+  background: rgba(220, 192, 140, 0.22);
+  pointer-events: none;
+}
+.hero__rail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--gold-soft), var(--gold));
+  transform-origin: top;
+  transform: scaleY(var(--p));
+}
+.hero__rail::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(var(--p) * 100%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 0 3px rgba(220, 192, 140, 0.2), 0 0 14px 2px rgba(220, 192, 140, 0.55);
+  transform: translate(-50%, -50%);
+}
+
+/* A soft golden ripple when the bloom completes. */
+.hero[data-bloomed] .arch::before {
+  animation: archGlow 2.4s var(--ease) 1;
+}
+@keyframes archGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 192, 140, 0.7), 0 0 0 0 rgba(220, 192, 140, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 26px rgba(220, 192, 140, 0), 0 0 0 52px rgba(220, 192, 140, 0);
+  }
 }
 
 .bloom {
@@ -288,8 +371,18 @@
     height: 100%;
     align-self: stretch;
   }
+  .arch {
+    bottom: 0;
+    height: calc(100% - var(--arch-top, 17%));
+  }
   .hero__hint {
-    display: flex;
+    left: 72px;
+    right: auto;
+    bottom: 22px;
+    justify-content: flex-start;
+  }
+  .hero__rail {
+    right: 26px;
   }
 }
 
@@ -800,6 +893,7 @@
 .story__divider {
   width: min(900px, 100%);
   height: auto;
+  aspect-ratio: 1383 / 166;
   margin: calc(var(--space-block) + 24px) auto 0;
 }
 .quote__petals {
