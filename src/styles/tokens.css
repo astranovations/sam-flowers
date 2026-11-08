@@ -1,0 +1,42 @@
+:root {
+  /* Palette */
+  --ivory: #f6f0e9;
+  --paper: #efe7d9;
+  --blush: #f3e3e1;
+  --burgundy: #5c1a22;
+  --burgundy-deep: #431218;
+  --cherry: #9b1b30;
+  --ink: #2b0f14;
+  --hairline: rgba(43, 15, 20, 0.1);
+
+  /* Type */
+  --font-serif: "Cormorant Garamond Variable", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost Variable", "Jost", system-ui, -apple-system, sans-serif;
+
+  /* Shape & space */
+  --radius: 6px;
+  --hero-inset: 12px;
+  --hero-radius: 24px;
+  --space-section: 84px;
+  --space-block: 48px;
+  --space-element: 28px;
+  --header-h: 64px;
+  --content-w: 1120px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 30px rgba(67, 18, 24, 0.05);
+  --shadow-lift: 0 20px 50px rgba(67, 18, 24, 0.12);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --hero-inset: 28px;
+    --hero-radius: 48px;
+    --space-section: 128px;
+    --space-block: 64px;
+    --header-h: 76px;
+  }
+}
