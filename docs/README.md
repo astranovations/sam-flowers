@@ -10,5 +10,6 @@ Planning documents for the v1 landing page.
 | [04-design-system.md](04-design-system.md) | Design system decisions (to be filled in) |
 | [05-open-questions.md](05-open-questions.md) | What we still need to decide |
 | [06-implementation-plan.md](06-implementation-plan.md) | React stack, folder structure and build phases |
+| [07-illustration-prompts.md](07-illustration-prompts.md) | Prompts for generating the illustrations |
 
 Status: **discussion phase**, no code yet.
