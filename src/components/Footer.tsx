@@ -4,7 +4,7 @@ import { Flourish } from "./Ornaments";
 export default function Footer() {
   return (
     <footer className="footer">
-      <Flourish className="footer__flourish" />
+      <Flourish className="flourish footer__flourish" />
       <div className="container footer__inner">
         <span className="footer__logo">
           Sam <em>Flowers</em>

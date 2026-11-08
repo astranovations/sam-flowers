@@ -26,6 +26,9 @@ export default function Story() {
           </div>
         </Reveal>
       </div>
+      <Reveal className="container">
+        <Illustration name="e1-divider" className="story__divider" />
+      </Reveal>
     </section>
   );
 }

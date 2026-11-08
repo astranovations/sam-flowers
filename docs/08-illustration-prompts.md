@@ -6,11 +6,13 @@ Prerequisite: the project instructions from `07-illustration-project-context.md`
 ChatGPT only makes 1:1, 2:3 and 3:2, so every ratio below is one of those (I crop where needed).
 
 ## Status
-- [x] A1 done (`a1-sprout.png`)
-- [x] C1 done (`c1-hands.png`, flattened onto cream)
-- [x] D1 done (generated, needs to be saved as `d1-icon-fresh.png`)
-- [x] D2 approved (scissors + peony), file not uploaded yet
-- [ ] everything else below
+All illustrations are delivered and placed in `public/images/` (processed: trimmed, compressed, flower stages aligned on one stem, D1 background made transparent).
+
+Versions chosen from the zip:
+- B1: `B1-1` (the clean one; `B1-2` had a dirty faded edge)
+- C1: `C3-3` (stitched-sleeve scene, fully opaque; `C1-1` and `C2-2` had faded transparent edges)
+- C2: `C2` (bucket still life; not used on the page yet)
+- A4 was scaled up 20% so the stem height matches the other stages.
 
 ---
 
@@ -147,22 +149,22 @@ A garland of flowers and sage leaves arranged along a semicircular arch (like th
 
 ## Delivery checklist
 - [x] A1 `a1-sprout.png`
-- [ ] A2 `a2-bud.png`
-- [ ] A3 `a3-opening.png`
-- [ ] A4 `a4-half-open.png`
-- [ ] A5 `a5-bloom.png`
-- [ ] B1 `b1-pivoines.png`
-- [ ] B2 `b2-roses.png`
-- [ ] B3 `b3-renoncules.png`
-- [ ] B4 `b4-tulipes.png`
-- [ ] B5 `b5-anemones.png`
+- [x] A2 `a2-bud.png`
+- [x] A3 `a3-opening.png`
+- [x] A4 `a4-half-open.png`
+- [x] A5 `a5-bloom.png`
+- [x] B1 `b1-pivoines.png`
+- [x] B2 `b2-roses.png`
+- [x] B3 `b3-renoncules.png`
+- [x] B4 `b4-tulipes.png`
+- [x] B5 `b5-anemones.png`
 - [x] C1 `c1-hands.png`
 - [x] D1 generated (save as `d1-icon-fresh.png`)
 - [x] D2 `d2-icon-handmade.png`
-- [ ] D3 `d3-icon-gift.png`
-- [ ] E1 `e1-divider.png`
-- [ ] E2 `e2-pattern.png`
-- [ ] E3 `e3-petals.png`
-- [ ] F1 `f1-logo.png`
-- [ ] G1 `g1-corner.png`
-- [ ] G2 `g2-arch-garland.png`
+- [x] D3 `d3-icon-gift.png`
+- [x] E1 `e1-divider.png`
+- [x] E2 `e2-pattern.png`
+- [x] E3 `e3-petals.png`
+- [x] F1 `f1-logo.png`
+- [x] G1 `g1-corner.png`
+- [x] G2 `g2-arch-garland.png`

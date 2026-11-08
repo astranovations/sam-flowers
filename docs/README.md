@@ -13,4 +13,4 @@ Planning documents for the v1 landing page.
 | [07-illustration-project-context.md](07-illustration-project-context.md) | Text to paste in the ChatGPT project instructions |
 | [08-illustration-prompts.md](08-illustration-prompts.md) | Prompts to paste one by one, with file names |
 
-Status: v1 landing page built with placeholder illustrations (branch `feat/landing-v1`). Waiting for the real illustrations.
+Status: v1 landing page built with the real illustrations (branch `feat/landing-v1`). Placeholders remain only as fallbacks.
