@@ -70,3 +70,23 @@ export const contact = {
 export const footer = {
   note: "Bientôt : commandes en ligne.",
 };
+
+// Birthday overlay for the shop owner. Set `enabled: false` to switch it off.
+// TODO: edit the message and signature before showing it to her.
+export const birthday = {
+  enabled: true,
+  name: "Samira",
+  eyebrow: "Aujourd'hui, c'est ton jour",
+  title: "Joyeux anniversaire",
+  message:
+    "Que cette nouvelle année s'ouvre comme une fleur : doucement, magnifiquement, et à ta couleur. Cette page est un petit cadeau : ton atelier de fleurs, rien que pour toi.",
+  from: "Ahmed",
+  image: "a5-bloom", // swap for a dedicated birthday illustration once generated
+  // Original words for the karaoke (written for her, not a known song).
+  lines: [
+    "Pour toi, Samira, mille fleurs",
+    "Qui s'ouvrent comme le bonheur",
+    "Que chaque jour soit un bouquet",
+    "Joyeux anniversaire, Samira !",
+  ],
+};

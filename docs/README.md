@@ -12,5 +12,6 @@ Planning documents for the v1 landing page.
 | [06-implementation-plan.md](06-implementation-plan.md) | React stack, folder structure and build phases |
 | [07-illustration-project-context.md](07-illustration-project-context.md) | Text to paste in the ChatGPT project instructions |
 | [08-illustration-prompts.md](08-illustration-prompts.md) | Prompts to paste one by one, with file names |
+| [09-birthday-illustrations.md](09-birthday-illustrations.md) | Optional art for the birthday overlay, and how to switch it off |
 
 Status: v1 landing page built with the real illustrations (branch `feat/landing-v1`). Placeholders remain only as fallbacks.

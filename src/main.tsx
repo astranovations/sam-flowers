@@ -6,6 +6,7 @@ import "@fontsource-variable/jost/wght.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/sections.css";
+import "./styles/birthday.css";
 import App from "./App";
 
 createRoot(document.getElementById("root")!).render(
