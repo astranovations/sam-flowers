@@ -2,13 +2,30 @@
 
 > To be decided together. Suggestions below are starting points only.
 
-## Palette
-| Role | Suggestion | Final |
-|------|------------|-------|
-| Background | Off-white / cream | TBD |
-| Primary | Muted sage green | TBD |
-| Accent | Blush pink or terracotta (pick one) | TBD |
-| Text | Soft near-black | TBD |
+## Palette (direction: cherry / burgundy)
+Hex values are proposals to test visually, not final.
+
+| Role | Proposal | Hex |
+|------|----------|-----|
+| Background | Warm ivory | `#FAF5F0` |
+| Surface / soft band | Blush | `#F3E3E1` |
+| Primary | Deep burgundy (same as the inspiration site's theme colour) | `#4A2028` |
+| Accent | Cherry | `#9B1B30` |
+| Text | Dark wine, near-black | `#2B0F14` |
+| Optional detail | Muted gold, used very sparingly | `#B8935A` |
+
+Rule: ivory and blush do most of the work; burgundy for text and key areas; cherry only for small accents (links, hover, one highlight) so it stays minimalist.
+
+## Inspiration: thedigitalyes.com
+What we could confirm from the page text: burgundy theme colour, clear heading hierarchy with small uppercase "eyebrow" labels above sections, numbered steps (01, 02, 03), card grids with a short tagline per item, short imperative button labels plus secondary text links with arrows ("Découvrir →"), and an interactive tilt effect on one module.
+Not confirmed (needs a visual inspection): exact fonts, spacing, hover and scroll animations.
+We take the feel and ideas, not code or assets; components are rebuilt from scratch.
+
+Candidate ideas to borrow:
+- Eyebrow labels + numbered sections (01 / 02 / 03)
+- Clean card grid for "Nos créations" with a small tagline
+- Arrow text links as secondary actions
+- Subtle tilt-on-hover for one featured card
 
 ## Typography
 | Role | Suggestion | Final |
