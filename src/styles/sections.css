@@ -84,11 +84,14 @@
   height: 320lvh; /* stable: does not change when the phone's address bar hides */
   --p: 0;
 }
+.hero[data-bloomed="1"] {
+  height: auto; /* already seen the bloom this session: no scroll-driven part left */
+}
 .hero__sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
-  height: 100dvh; /* fills the visible screen as the address bar shows/hides */
+  /* svh, not dvh: a fixed size, so the card never resizes while the phone's toolbar shows/hides */
+  height: 100svh;
   padding: var(--hero-inset);
 }
 .hero__stage {
@@ -235,16 +238,10 @@
 .hint--go {
   opacity: clamp(0, calc(1 - var(--p) * 6), 0.85);
 }
-.hint--done {
-  position: absolute;
+.hero[data-bloomed] .hint--go,
+.hero[data-bloomed] .hero__rail {
   opacity: 0;
-  color: var(--gold-soft);
-}
-.hero[data-bloomed] .hint--go {
-  opacity: 0;
-}
-.hero[data-bloomed] .hint--done {
-  opacity: 0.95;
+  visibility: hidden;
 }
 .hint__chev {
   width: 9px;
@@ -300,7 +297,7 @@
 }
 
 /* A soft golden ripple when the bloom completes. */
-.hero[data-bloomed] .arch::before {
+.hero[data-bloomed="live"] .arch::before {
   animation: archGlow 2.4s var(--ease) 1;
 }
 @keyframes archGlow {

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { site } from "../content";
 import { useReducedMotion } from "../hooks/useReducedMotion";
-import BloomingFlower from "./BloomingFlower";
+import BloomingFlower, { wasBloomed } from "./BloomingFlower";
 import Illustration from "./ui/Illustration";
 
 export default function Hero() {
@@ -10,7 +10,7 @@ export default function Hero() {
   const words = site.tagline.split(" ");
 
   return (
-    <section className="hero" ref={track} aria-label="Accueil">
+    <section className="hero" ref={track} aria-label="Accueil" data-bloomed={wasBloomed() ? "1" : undefined}>
       <div className="hero__sticky">
         <div className="hero__stage">
           <div className="hero__aurora" aria-hidden="true" />
@@ -46,7 +46,6 @@ export default function Hero() {
             <span className="hint hint--go">
               <i className="hint__chev" /> Faites défiler pour la voir éclore
             </span>
-            <span className="hint hint--done">✿ Elle a éclos · continuez</span>
           </div>
         </div>
       </div>

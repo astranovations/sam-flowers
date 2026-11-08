@@ -3,6 +3,16 @@ import Illustration from "./ui/Illustration";
 
 export const BLOOM_STAGES = ["a1-sprout", "a2-bud", "a3-opening", "a4-half-open", "a5-bloom"];
 const LAST = BLOOM_STAGES.length - 1;
+const KEY = "sf-bloomed";
+
+/** True once the visitor has seen the full bloom in this session: from then on it just stays open. */
+export function wasBloomed(): boolean {
+  try {
+    return sessionStorage.getItem(KEY) === "1";
+  } catch {
+    return false;
+  }
+}
 
 type Props = {
   /** Element whose scroll progress drives the bloom (tall section with a sticky child). */
@@ -23,16 +33,22 @@ export default function BloomingFlower({ trackRef, reduced }: Props) {
   const loaded = useRef<boolean[]>(BLOOM_STAGES.map(() => false));
   const progress = useRef(0);
   const lvh = useRef(0);
-  const bloomed = useRef(false);
+  const startBloomed = useRef(wasBloomed()).current;
+  const bloomed = useRef(startBloomed);
   const [rest, setRest] = useState(false); // stages 2-5 start downloading once the sprout is in
 
   const paint = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
     if (progress.current >= 0.995 && !bloomed.current) {
-      // Once fully bloomed it stays open, even if the visitor scrolls back up.
+      // Once fully bloomed it stays open for good (this session), and we stop listening to scroll.
       bloomed.current = true;
-      track.dataset.bloomed = "1";
+      track.dataset.bloomed = "live";
+      try {
+        sessionStorage.setItem(KEY, "1");
+      } catch {
+        /* private mode: fine, it still stays open until reload */
+      }
     }
     const t = (bloomed.current ? 1 : progress.current) * LAST;
     const have = loaded.current.map((ok, i) => (ok ? i : -1)).filter((i) => i >= 0);
@@ -48,7 +64,7 @@ export default function BloomingFlower({ trackRef, reduced }: Props) {
       else if (hi !== undefined) w = i === hi ? 1 : 0;
       el.style.opacity = String(w);
     });
-    track.style.setProperty("--p", progress.current.toFixed(3));
+    track.style.setProperty("--p", (bloomed.current ? 1 : progress.current).toFixed(3));
   }, [trackRef]);
 
   const onStageLoad = (i: number) => {
@@ -61,8 +77,9 @@ export default function BloomingFlower({ trackRef, reduced }: Props) {
     const track = trackRef.current;
     if (!track) return;
 
-    if (reduced) {
+    if (reduced || startBloomed) {
       progress.current = 1;
+      if (startBloomed) track.dataset.bloomed = "1";
       paint();
       return;
     }
@@ -84,9 +101,14 @@ export default function BloomingFlower({ trackRef, reduced }: Props) {
       const span = rect.height - lvh.current;
       progress.current = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 1;
       paint();
+      if (bloomed.current) detach(); // finished: nothing left to listen for
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
+    };
+    const detach = () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -97,17 +119,18 @@ export default function BloomingFlower({ trackRef, reduced }: Props) {
     window.addEventListener("resize", onResize);
     return () => {
       probe.remove();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
+      detach();
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [trackRef, reduced, paint]);
+  }, [trackRef, reduced, startBloomed, paint]);
 
   return (
     <div className="bloom" aria-hidden="true">
       {BLOOM_STAGES.map((name, i) => (
         <div key={name} className="bloom__layer" ref={(el) => { layers.current[i] = el; }} style={{ opacity: 0 }}>
-          {(i === 0 || rest) && <Illustration name={name} eager priority={i === 0 ? "high" : undefined} onLoad={() => onStageLoad(i)} />}
+          {(startBloomed ? i === LAST : i === 0 || rest) && (
+            <Illustration name={name} eager priority={i === (startBloomed ? LAST : 0) ? "high" : undefined} onLoad={() => onStageLoad(i)} />
+          )}
         </div>
       ))}
     </div>
