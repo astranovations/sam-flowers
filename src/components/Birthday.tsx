@@ -7,9 +7,19 @@ import { Flourish } from "./Ornaments";
 const SEEN = "sf-bday-seen";
 const INTRO = "sf-intro-seen";
 
-/** Shown once per session while enabled; `?birthday` in the URL forces it. */
+/** True on the birthday itself (day and month from `birthday.date`, every year). */
+function isBirthdayToday(): boolean {
+  const now = new Date();
+  return now.getMonth() + 1 === birthday.date.month && now.getDate() === birthday.date.day;
+}
+
+/**
+ * Shown once per session while enabled; `?birthday` in the URL forces it.
+ * On the birthday date it shows on every visit and refresh.
+ */
 export function shouldShowBirthday(): boolean {
   if (!birthday.enabled || typeof window === "undefined") return false;
+  if (isBirthdayToday()) return true;
   try {
     if (new URLSearchParams(window.location.search).has("birthday")) return true;
     return !sessionStorage.getItem(SEEN);

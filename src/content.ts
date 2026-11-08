@@ -75,6 +75,7 @@ export const footer = {
 // TODO: edit the message and signature before showing it to her.
 export const birthday = {
   enabled: true,
+  date: { month: 11, day: 8 }, // 8 November: shows on every visit that day
   name: "Samira",
   eyebrow: "Aujourd'hui, c'est ton jour",
   title: "Joyeux anniversaire",
