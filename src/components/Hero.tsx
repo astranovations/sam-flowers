@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { site } from "../content";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 import BloomingFlower from "./BloomingFlower";
+import Illustration from "./ui/Illustration";
 
 export default function Hero() {
   const track = useRef<HTMLElement>(null);
@@ -27,9 +28,18 @@ export default function Hero() {
               Découvrir <span>→</span>
             </a>
           </div>
+
           <div className="hero__flower">
-            <BloomingFlower trackRef={track} reduced={reduced} />
+            <div className="arch">
+              <div className="arch__window">
+                <BloomingFlower trackRef={track} reduced={reduced} />
+              </div>
+              <div className="arch__garland" aria-hidden="true">
+                <Illustration name="g2-arch-garland" eager />
+              </div>
+            </div>
           </div>
+
           <div className="hero__hint" aria-hidden="true">
             <i /> Faites défiler
           </div>

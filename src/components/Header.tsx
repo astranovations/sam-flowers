@@ -4,10 +4,18 @@ import { site } from "../content";
 export default function Header() {
   const [solid, setSolid] = useState(false);
   useEffect(() => {
-    const on = () => setSolid(window.scrollY > 40);
+    const on = () => {
+      const hero = document.querySelector<HTMLElement>(".hero");
+      const limit = hero ? hero.offsetHeight - window.innerHeight * 0.6 : 40;
+      setSolid(window.scrollY > limit);
+    };
     on();
     window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
+    window.addEventListener("resize", on);
+    return () => {
+      window.removeEventListener("scroll", on);
+      window.removeEventListener("resize", on);
+    };
   }, []);
 
   return (

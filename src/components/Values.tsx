@@ -6,7 +6,7 @@ export default function Values() {
   return (
     <section className="section values" aria-labelledby="values-title">
       <div className="container">
-        <Reveal className="section__head">
+        <Reveal className="section__head section__head--center">
           <span className="eyebrow">
             <span className="num">03</span>
             {values.eyebrow}
@@ -16,7 +16,9 @@ export default function Values() {
         <div className="values__grid">
           {values.items.map((v, i) => (
             <Reveal key={v.title} className="value" delay={i * 0.12}>
-              <Illustration name={v.icon} className="value__icon" alt="" />
+              <span className="value__ring">
+                <Illustration name={v.icon} className="value__icon" alt="" />
+              </span>
               <h3>{v.title}</h3>
               <p>{v.text}</p>
             </Reveal>

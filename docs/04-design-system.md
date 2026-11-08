@@ -1,5 +1,9 @@
 # Design System
 
+> **Direction update:** richer, not strictly minimalist. Keep elegance and whitespace, but add layered illustration, ornament and texture: watercolour + stitched (embroidery-like) flowers, gold hairline frames, arch windows, a wax-seal monogram, paper grain, and alternating burgundy / ivory sections. Implemented in `src/` (see `Ornaments.tsx`, `Intro.tsx`, `Hero.tsx`).
+
+Additions to the palette: gold `#b48a4a` (hairlines, tiny accents, use sparingly), soft gold `#dcc08c` (text accents on dark), sage `#8a9a7b` (leaves only).
+
 > To be decided together. Suggestions below are starting points only.
 
 ## Palette (direction: cherry / burgundy)
