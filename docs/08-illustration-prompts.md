@@ -9,7 +9,7 @@ ChatGPT only makes 1:1, 2:3 and 3:2, so every ratio below is one of those (I cro
 - [x] A1 done (`a1-sprout.png`)
 - [x] C1 done (`c1-hands.png`, flattened onto cream)
 - [x] D1 done (generated, needs to be saved as `d1-icon-fresh.png`)
-- [x] D2 done (`d2-icon-handmade.png`, scissors + peony)
+- [x] D2 approved (scissors + peony), file not uploaded yet
 - [ ] everything else below
 
 ---
