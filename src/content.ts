@@ -64,7 +64,7 @@ export const contact = {
     { label: "Instagram", value: "@samflowers", href: "https://instagram.com/" },
     { label: "WhatsApp", value: "+213 ··· ·· ·· ··", href: "https://wa.me/" },
   ],
-  place: "Algérie",
+  place: "Oran, Algérie",
 };
 
 export const footer = {
