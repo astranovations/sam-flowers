@@ -9,6 +9,7 @@ ChatGPT only makes 1:1, 2:3 and 3:2, so every ratio below is one of those (I cro
 - [x] A1 done (`a1-sprout.png`)
 - [x] C1 done (`c1-hands.png`, flattened onto cream)
 - [x] D1 done (generated, needs to be saved as `d1-icon-fresh.png`)
+- [x] D2 done (`d2-icon-handmade.png`, scissors + peony)
 - [ ] everything else below
 
 ---
@@ -89,7 +90,8 @@ Add to every icon: "Everything fully visible, centered, wide empty margin, nothi
 
 ### D1 · `d1-icon-fresh.png` · DONE (save the generated image with this name)
 
-### D2 · `d2-icon-handmade.png` · 1:1
+### D2 · `d2-icon-handmade.png` · DONE
+(approved; the prompt below was used)
 ```
 A small icon-like illustration of a pair of florist scissors lying diagonally with one flower stem and two sage leaves beside them. Burgundy ink line with a light blush wash and one tiny gold dot. Everything fully visible, centered, wide empty margin, nothing cropped. Crisp clean edges on a transparent background, no vignette, no fading, no shadow, no paper texture. Square 1:1. Match the style of the attached image.
 ```
@@ -156,7 +158,7 @@ A garland of flowers and sage leaves arranged along a semicircular arch (like th
 - [ ] B5 `b5-anemones.png`
 - [x] C1 `c1-hands.png`
 - [x] D1 generated (save as `d1-icon-fresh.png`)
-- [ ] D2 `d2-icon-handmade.png`
+- [x] D2 `d2-icon-handmade.png`
 - [ ] D3 `d3-icon-gift.png`
 - [ ] E1 `e1-divider.png`
 - [ ] E2 `e2-pattern.png`
