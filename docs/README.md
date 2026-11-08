@@ -9,5 +9,6 @@ Planning documents for the v1 landing page.
 | [03-creative-concepts.md](03-creative-concepts.md) | Ideas to make the page special while staying minimalist |
 | [04-design-system.md](04-design-system.md) | Design system decisions (to be filled in) |
 | [05-open-questions.md](05-open-questions.md) | What we still need to decide |
+| [06-implementation-plan.md](06-implementation-plan.md) | React stack, folder structure and build phases |
 
 Status: **discussion phase**, no code yet.
