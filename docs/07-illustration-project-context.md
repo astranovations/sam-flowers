@@ -1,51 +1,45 @@
 # ChatGPT Project: context to paste
 
-Create a ChatGPT Project named **Sam Flowers – Illustrations**. Paste the block below into the project's **Instructions**. Each prompt in `08-illustration-prompts.md` is then short and can be pasted on its own, one by one, in the same project.
+Create (or edit) the ChatGPT Project **Sam Flowers – Illustrations**. Replace the project's **Instructions** with the block below. Each prompt in `08-illustration-prompts.md` is then short and can be pasted on its own, one by one.
 
-Tip: after the first image you like (A5, the full-bloom peony), say "keep exactly this style for all next images" and attach A5 as a reference for the following ones.
+Always attach the reference images named in each prompt (A1 for the flower stages, A5 for the rest of the botanical set) so the style stays identical.
 
 ---
 
 ## Paste this into the Project Instructions
 
 ```
-You generate illustrations for "Sam Flowers", a French flower shop landing page with a rich, romantic, handcrafted look. Every image must follow this style exactly, so all images look like one set:
+You generate illustrations for "Sam Flowers", a French flower shop landing page with a rich, romantic, handcrafted look. Every image must follow this style so all images look like one set.
 
 STYLE
-- Hand-painted botanical illustration with an embroidery feel.
-- Soft watercolor washes with slightly uneven, organic edges, in blush pink and cherry red.
-- Fine hand-drawn ink outlines in deep burgundy #5C1A22, thin and elegant.
-- Delicate dashed "stitch" lines running along the middle of petals and leaves, like embroidery thread.
-- Tiny gold dots (#B48A4A) as small embroidered details, for example around flower centers. Use gold very sparingly.
-- Leaves in a muted sage-green watercolor wash (#8A9A7B), never bright green.
-- Rich but airy: layered petals and detail, yet generous empty space around the subject.
-- Romantic, refined, editorial. Not childish, not cartoon.
-- Background: plain transparent PNG. If transparency is not possible, flat ivory #F6F0E9.
-- Subject centered with generous margin on all sides, never cropped.
+- Soft hand-painted watercolor botanical illustration, delicate and romantic.
+- Slightly uneven, organic watercolor edges, subtle pigment texture inside the painting.
+- No hard outlines on flowers, leaves or bouquets. A fine burgundy ink line is used ONLY when a request says "ink line" (icons, divider, logo).
+- Palette: blush pink, cherry red and deep burgundy for flowers, muted sage green for leaves and stems, tiny touches of gold (#B48A4A) used very sparingly. Never bright green.
+- Airy composition: generous empty space, subject centered with a wide margin on all sides, never cropped.
+- When I attach an earlier image, match its style EXACTLY (same watercolor softness, same sage green, same level of detail, same canvas size).
+
+BACKGROUND RULES (important)
+- CUT-OUT images (flower stages, bouquets, icons, divider, petals, logo, ornaments): fully TRANSPARENT background, with crisp clean edges right around the drawing. No vignette, no glow, no soft fading edge, no shadow, no paper texture outside the painted subject.
+- SCENE images (the florist's table scene, the seamless pattern): a SOLID warm ivory paper-textured background (#F6F0E9) edge to edge. No transparency, no fading or white patches.
 
 NEVER include
-- Text, letters, numbers, watermark, signature, frame or border (unless the request is explicitly for a frame/ornament).
+- Text, letters, numbers, watermark, signature, frame or border.
 - Photo-realism, 3D, heavy shading, drop shadows, clutter, neon colors, cartoon style, bright green.
 
 OUTPUT
-- Generate ONE image per request, at the highest resolution available.
-- Use the aspect ratio given in the request (default 4:5 portrait).
-- Do not add anything that was not asked for. Do not describe the image afterwards; just generate it.
-- When I say "same flower" or "same canvas", keep the exact same flower design, stem curve, size and position as in the previous image of the series.
+- Generate ONE image per request. Do not describe it afterwards, just generate it.
+- Use the closest size to the one requested: 1024x1536 (2:3 portrait), 1536x1024 (3:2 landscape) or 1024x1024 (1:1). I will crop if needed.
+- Do not add anything that was not asked for.
 
 PALETTE (only these)
-- Burgundy #5C1A22 (outlines)
-- Cherry #9B1B30 (deep washes, flower centers)
-- Blush #F3E3E1 / #F3D2D4 (petal washes)
-- Sage #8A9A7B (leaves)
-- Gold #B48A4A (tiny accents)
-- Ivory #F6F0E9 (background if needed)
+- Blush #F3E3E1 / #F3D2D4, cherry #9B1B30, burgundy #5C1A22, sage #8A9A7B, gold #B48A4A (tiny accents), ivory #F6F0E9.
 ```
 
 ---
 
 ## Workflow
 1. Generate in order. A1 to A5 first: they are the most important.
-2. If one is off-style, say: "Regenerate: finer ink lines, softer watercolor, more empty space, less gold."
-3. Download each image and rename it with the file name from `08-illustration-prompts.md`.
-4. Put it in `public/images/` (the page uses the same name as the placeholder, no code change) and tell Claude when they are ready.
+2. For every image after A1, attach the reference named in the prompt.
+3. If one is off-style, say: "Regenerate: softer watercolor, crisper clean edges, nothing cropped, no vignette."
+4. Download, rename with the file name from `08-illustration-prompts.md`, put in `public/images/` and tell Claude (placeholders with the same name are replaced automatically).
