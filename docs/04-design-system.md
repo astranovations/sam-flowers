@@ -30,9 +30,31 @@ Candidate ideas to borrow:
 ## Typography
 | Role | Suggestion | Final |
 |------|------------|-------|
-| Headings | Elegant serif | TBD |
+| Headings | Elegant serif, light weight, with italics for emphasis | TBD |
 | Body | Clean sans-serif | TBD |
+| Labels / eyebrows | Small uppercase sans, wide letter-spacing (about .14em to .2em) | TBD |
 | Scale | Large, airy headings; small, quiet body | TBD |
+
+Font candidates (all free on Google Fonts):
+- **Cormorant Garamond** (headings): refined, high contrast, beautiful italic. Reference site uses it for headings.
+- **Montserrat** (body): clean and neutral. Reference site uses it for body text.
+- **Playfair Display**: a bolder serif alternative for headings.
+- **Jost**: a geometric sans alternative for body, a bit more distinctive than Montserrat.
+
+To make hers feel different from the reference, a possible pairing is Cormorant Garamond + Jost.
+
+## Confirmed from the reference site's CSS (design tokens only)
+- Fonts: Cormorant Garamond + Montserrat (also loads Playfair Display, Inter, Jost).
+- Palette: ivory/cream `#f6f0e9` / `#f7f3ec`, paper `#efe7d9`, oxblood `#5c1a22` (deep `#431218`), ink `#2b2320`, hairline borders at about 8% ink opacity.
+- Small radii on controls (4 to 8px), large rounded hero (22px on mobile, 56px on desktop) inset from the screen edges (12px mobile, 28px desktop).
+- Generous vertical rhythm: section spacing 56px on mobile, 84px on desktop.
+- Soft, low-opacity shadows; no hard borders.
+- Easing: `cubic-bezier(.16, 1, .3, 1)` (fast start, long gentle stop) for entrances; short micro-transitions (about .15s to .3s).
+- Slow "aurora" blurred gradient backgrounds in burgundy and champagne tones.
+- Animations present: word-by-word text entrance, hero rise/drift, fade-up, shimmer, floating elements.
+- Section structure: big headline sections, numbered steps, plan cards, FAQ accordion, testimonials.
+
+These are used as inspiration only. All code, assets and copy are written from scratch for this project.
 
 ## Layout
 - Mobile first, single column that opens up on desktop
