@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
 
 type Props = {
   as?: ElementType;
@@ -10,6 +10,9 @@ type Props = {
 /** Fades and lifts its content in when it enters the viewport. */
 export default function Reveal({ as: Tag = "div", delay = 0, className = "", children }: Props) {
   const ref = useRef<HTMLElement>(null);
+  // Kept in state (not added with classList) so re-renders of the parent,
+  // e.g. toggling a card open, do not wipe the "in" class.
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -17,7 +20,7 @@ export default function Reveal({ as: Tag = "div", delay = 0, className = "", chi
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("in");
+          setShown(true);
           io.disconnect();
         }
       },
@@ -28,7 +31,11 @@ export default function Reveal({ as: Tag = "div", delay = 0, className = "", chi
   }, []);
 
   return (
-    <Tag ref={ref} className={`reveal ${className}`} style={{ "--d": `${delay}s` } as React.CSSProperties}>
+    <Tag
+      ref={ref}
+      className={`reveal ${shown ? "in" : ""} ${className}`}
+      style={{ "--d": `${delay}s` } as React.CSSProperties}
+    >
       {children}
     </Tag>
   );

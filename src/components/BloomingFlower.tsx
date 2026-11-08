@@ -20,8 +20,11 @@ export default function BloomingFlower({ trackRef, reduced }: Props) {
     const track = trackRef.current;
     if (!track) return;
 
+    // Once the flower has fully bloomed it stays open, even if the visitor scrolls back up.
+    let bloomed = false;
     const apply = (p: number) => {
-      const t = p * (BLOOM_STAGES.length - 1);
+      if (p >= 0.995) bloomed = true;
+      const t = (bloomed ? 1 : p) * (BLOOM_STAGES.length - 1);
       imgs.current.forEach((el, i) => {
         if (!el) return;
         el.style.opacity = String(Math.max(0, 1 - Math.abs(t - i)));

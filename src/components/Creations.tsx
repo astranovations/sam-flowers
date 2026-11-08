@@ -16,11 +16,12 @@ export default function Creations() {
           </span>
           <h2>{creations.title}</h2>
         </Reveal>
+        <Reveal className="cards-wrap">
         <ul className="cards">
           {creations.items.map((c, i) => {
             const isOpen = open === c.id;
             return (
-              <Reveal as="li" key={c.id} className={`card ${isOpen ? "card--open" : ""}`} delay={(i % 3) * 0.1}>
+              <li key={c.id} className={`card ${isOpen ? "card--open" : ""}`}>
                 <button
                   className="card__arch"
                   aria-expanded={isOpen}
@@ -42,10 +43,11 @@ export default function Creations() {
                   <span className="card__num">{String(i + 1).padStart(2, "0")}</span>
                   <h3>{c.name}</h3>
                 </div>
-              </Reveal>
+              </li>
             );
           })}
         </ul>
+        </Reveal>
       </div>
     </section>
   );
